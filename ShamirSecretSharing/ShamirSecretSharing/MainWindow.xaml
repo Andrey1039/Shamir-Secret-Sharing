@@ -1,0 +1,31 @@
+﻿<Window x:Class="ShamirSecretSharing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShamirSecretSharing"
+        mc:Ignorable="d"
+        Title="Протокол с разделением секрета" Height="531" Width="535" FontSize="20" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#FFDEE2C0"/>
+        </Grid.Background>
+        <Canvas VerticalAlignment="Center" Height="515" Width="535" Background="#FFDEE2C0" HorizontalAlignment="Center">
+            <Label Content="Введите секрет (до 42 символов):" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Center"/>
+            <TextBox x:Name="OriginalSecretTB" Text="Hello, world!" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="45" Canvas.Top="38" Width="456" HorizontalAlignment="Center"/>
+            <Label Content="Введите порог:" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="64" HorizontalAlignment="Center"/>
+            <TextBox x:Name="ThresholdTB" Text="3" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="45" Canvas.Top="97" Width="456" HorizontalAlignment="Center" MaxLength="32"/>
+            <Label Content="Введите количество участников (общее):" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="124" HorizontalAlignment="Center"/>
+            <TextBox x:Name="NumShareTB" Text="5" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="45" Canvas.Top="160" Width="456" HorizontalAlignment="Center" MaxLength="32"/>
+            <Label Content="Введите количество участников (восстановление):" Canvas.Left="10" Canvas.Top="185" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="NewNumShareTB" Text="3" TextWrapping="Wrap" Canvas.Left="45" Canvas.Top="221" Width="456" MaxLength="32" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Name="StartBtn" Content="Начать" VerticalAlignment="Top" Height="36" HorizontalAlignment="Center" Width="132" Canvas.Left="194" Canvas.Top="269" IsEnabled="True" Click="StartBtn_Click"/>
+            <Label Content="Части секрета:" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="304" HorizontalAlignment="Center"/>
+            <RichTextBox x:Name="SecretPartsTB"  Height="75" Width="456" Canvas.Left="45" Canvas.Top="341" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" IsReadOnly="True">
+                <FlowDocument PageWidth="4000"/>
+            </RichTextBox>
+            <Label Content="Полученный секрет:" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="421" HorizontalAlignment="Center"/>
+            <TextBox x:Name="ReceivedSecretTB" TextWrapping="Wrap" VerticalAlignment="Top" Canvas.Left="45" Canvas.Top="455" Width="456" HorizontalAlignment="Center" IsReadOnly="True"/>
+        </Canvas>
+    </Grid>
+</Window>
